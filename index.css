@@ -2727,7 +2727,14 @@
   body.no-animations .anim-clip-right,
   body.no-animations .footer-brand,
   body.no-animations .footer-col,
-  body.no-animations .footer-bottom {
+  body.no-animations .footer-bottom,
+  body.no-animations .services-section,
+  body.no-animations .vehicles-section,
+  body.no-animations .why-section,
+  body.no-animations .team-section,
+  body.no-animations .testimonials-section,
+  body.no-animations .contact-section,
+  body.no-animations footer {
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
