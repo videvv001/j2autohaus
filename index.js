@@ -61,7 +61,7 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.06 });
 
 document.querySelectorAll(
-  '.services-section, .vehicles-section, .why-section, .team-section, .testimonials-section, .contact-section, footer'
+  '.services-section, .vehicles-section, .why-section, .team-section, .testimonials-section, .faq-section, .contact-section, footer'
 ).forEach(el => sectionObserver.observe(el));
 
 // ── Footer observer ──
@@ -79,6 +79,24 @@ if (footerEl) {
 }
 
 } // end if (!animationsDisabled)
+
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-item').forEach(item => {
+  const btn = item.querySelector('.faq-question');
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('is-open');
+    // Close all
+    document.querySelectorAll('.faq-item.is-open').forEach(open => {
+      open.classList.remove('is-open');
+      open.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    // Open clicked (unless it was already open)
+    if (!isOpen) {
+      item.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 
 // ── Nav scroll effect ──
 const heroSection = document.getElementById('home');
